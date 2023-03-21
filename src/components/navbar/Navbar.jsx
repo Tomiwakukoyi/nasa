@@ -1,123 +1,53 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ShareIcon from "@mui/icons-material/Share";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
-  const [missionsIsOpen, setMissionsIsOpen] = useState(false);
+  const [input, setInput] = useState(false);
+
+  function toggleInput() {
+    if (!input) {
+      setInput(true);
+    } else {
+      setInput(false);
+    }
+  }
 
   return (
-    <div className="flex items-center  h-36 bg-hero">
-      <img className="ml-4" src="/images/nasa-logo.svg" alt="" />
-      <div className=" flex flex-col">
-        <div className="flex  items-center justify-center mb-3">
-          <div className="flex items-center justify-center ">
-            <a className="text-white mr-4 text-lg" href="">
-              Missions
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white mr-4 ml-4 text-lg" href="">
-              Galleries
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white mr-4 ml-4 text-lg" href="">
-              NASA TV
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white mr-4 ml-4 text-lg" href="">
-              Follow NASA
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white mr-4 ml-4 text-lg" href="">
-              Downloads
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white mr-4 ml-4 text-lg" href="">
-              About
-            </a>
-            <div className=" h-12 w-0.5 bg-gray-500" />
-          </div>
-          <div className="flex items-center ">
-            <a className="text-white ml-4 text-lg" href="">
-              NASA Audience
+    <div className=" text-white bg-hero bg-contain">
+      <div className="flex items-center justify-between h-[85px]">
+        <img
+          src="/images/nasa-logo.svg"
+          alt="nasa logo"
+          className=" h-20 w-20 ml-2"
+        />
+        <div className="flex gap-4">
+          <div className="flex items-center justify-center w-24 h-[84px] focus:bg-[#15418c] ">
+            <a>
+              <span className="text-[21px]">NASA TV</span>
             </a>
           </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Search"
-              className=" bg-[#333333] placeholder-white placeholder-opacity-40  placeholder:text-sm placeholder:font-light w-36 h-10 placeholder:focus:rounded-sm pt-2 pb-2 pl-2"
-            />
-            <SearchIcon
-              className="absolute right-[310px] top-7 "
-              style={{ color: "white" }}
-            />
-            <ShareIcon style={{ color: "white" }} />
+          <div className="flex items-center gap-1 mr-2">
+            {input && (
+              <input
+                type="text"
+                placeholder="Search"
+                className="h-12 placeholder:text-white placeholder:opacity-30 placeholder:font-thin placeholder:pl-[10px]
+               right-[70px] absolute rounded-md border-2 border-white outline-2 outline-offset-2 outline-white bg-[#333333]"
+              />
+            )}
+            <SearchIcon className=" z-10 text-lg mr-3" onClick={toggleInput} />
+
+            <ShareIcon style={{ fontSize: "20px" }} />
+            <MenuIcon style={{ fontSize: "34px" }} />
           </div>
         </div>
-        <div className="flex bg-[#5d7fb9] p-2 border-none mt-4">
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3" href="">
-              Humans in Space
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Moon to Mars
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Earth
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Space Tech
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Flight
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Solar System and Beyond
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Stem Engagement
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              History
-            </a>
-            <div className=" h-7 w-[1px] bg-gray-500" />
-          </div>
-          <div className="flex items-center justify-center text-sm text-white">
-            <a className=" mr-3 ml-3" href="">
-              Benefits to You
-            </a>
-          </div>
+      </div>
+
+      <div>
+        <div>
+          <a href="">Topics</a>
         </div>
       </div>
     </div>
