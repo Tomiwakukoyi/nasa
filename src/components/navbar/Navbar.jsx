@@ -24,7 +24,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className=" text-white bg-hero bg-contain">
+    <div className=" text-white bg-hero bg-contain h-[85px]">
       <div className="flex items-center justify-between h-[85px]">
         <img
           src="/images/nasa-logo.svg"
@@ -32,31 +32,46 @@ const Navbar = () => {
           className=" h-20 w-20 ml-2"
         />
         <div className="flex gap-4">
-          <div className="flex cursor-pointer items-center justify-center w-24 h-[84px] hover:bg-[#15418c] ">
+          <div className="flex cursor-pointer items-center justify-center  w-24 h-[84px] hover:bg-[#15418c] sm:mr-48  ">
             <a>
-              <span className="text-[21px]">NASA TV</span>
+              <span className="text-[21px] ">NASA TV</span>
             </a>
           </div>
           <div className="flex items-center gap-1">
-            {input && (
+            {input ? (
               <input
                 type="text"
                 placeholder="Search"
-                className="h-12 placeholder:text-white placeholder:opacity-30 placeholder:font-thin placeholder:pl-[10px]
-               right-[70px] absolute rounded-md border-2 border-white outline-2 outline-offset-2 outline-white bg-[#333333]"
+                className="h-12 sm:hidden mr-10 placeholder:text-white placeholder:opacity-30 placeholder:font-thin placeholder:pl-[10px]
+               right-[40px] absolute rounded-md border-2 border-white focus:outline-none outline-2 outline-offset-2 outline-white bg-[#333333]"
+              />
+            ) : (
+              <input
+                type="text"
+                placeholder="Search"
+                className=" hidden sm:block sm:mr-3  h-12 mr-10 placeholder:text-white placeholder:opacity-30 placeholder:font-thin placeholder:pl-[10px]
+               right-[70px] absolute  rounded-md focus:border-2 focus:border-white focus:outline-none outline-2 outline-offset-2  bg-[#333333]"
               />
             )}
-            <SearchIcon className=" z-10 text-lg mr-3" onClick={toggleInput} />
+            <div className="z-10">
+              <SearchIcon
+                className="  sm:hidden text-lg mr-1"
+                onClick={toggleInput}
+              />
+            </div>
+            <div className="z-10 right-[5.35rem] absolute hidden sm:block">
+              <SearchIcon className=" z-10 hidden sm:block text-lg " />
+            </div>
 
             <ShareIcon
-              className="stroke-white stroke-1 mr-2"
+              className="stroke-white stroke-1 "
               style={{ fontSize: "20px" }}
             />
             {dropdown ? (
               <div className="flex items-center justify-center bg-[#15418c] h-full">
                 <MenuIcon
                   onClick={toggleDropdown}
-                  className=" stroke-white stroke-1 mr-5 ml-5 "
+                  className=" stroke-white stroke-1 ml-3 mr-3  "
                   style={{
                     fontSize: "30px",
                   }}
@@ -66,7 +81,7 @@ const Navbar = () => {
               <div className="flex items-center justify-center h-full">
                 <MenuIcon
                   onClick={toggleDropdown}
-                  className=" stroke-white stroke-1 mr-5 ml-5 "
+                  className=" stroke-white stroke-1 ml-3 mr-3  "
                   style={{
                     fontSize: "30px",
                   }}
@@ -76,55 +91,54 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
       {dropdown && (
-        <div className="bg-[#15418c] w-full">
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+        <div className="bg-[#15418c] w-full ">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Topics</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Missions</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Galleries</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Follow NASA</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Topics</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Topics</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2  cursor-pointer"
+              className="stroke-white stroke-2   cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
-          <div className=" flex items-center justify-between text-xl ml-4 mr-4">
+          <div className=" flex items-center justify-between text-xl ml-4 mr-2">
             <a href="">Topics</a>
             <KeyboardArrowDownIcon
-              className="stroke-white stroke-2 cursor-pointer"
+              className="stroke-white stroke-2  cursor-pointer"
               sx={{ fontSize: "40px" }}
             />
           </div>
